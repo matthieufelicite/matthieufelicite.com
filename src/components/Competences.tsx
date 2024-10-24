@@ -1,6 +1,12 @@
 import Competence from "@/components/Competence";
+import CompetenceType from "@/lib/interfaces/CompetenceType";
 
-export default function Competences() {
+interface Props {
+
+	competences: CompetenceType[];
+}
+
+export default function Competences({competences}: Props) {
 
 	return (
 
@@ -13,31 +19,10 @@ export default function Competences() {
 
 			<div className="flex gap-2 flex-wrap">
 
-				<Competence text="HTML" />
+				{competences.map((competence: CompetenceType) => (
 
-				<Competence text="CSS" />
-
-				<Competence text="Javascript" />
-
-				<Competence text="Typescript" />
-
-				<Competence text="C" />
-
-				<Competence text="C++" />
-
-				<Competence text="Python" />
-
-				<Competence text="Git" />
-
-				<Competence text="Docker" />
-
-				<Competence text="SQL" />
-
-				<Competence text="Travail d'équipe" />
-
-				<Competence text="Autonomie" />
-
-				<Competence text="Rigueur" />
+					<Competence key={competence.id} text={competence.label}/>
+				))}
 			</div>
 		</div>
 	)

@@ -2,7 +2,17 @@ import {Linkedin, Mail, MapPinHouse, Phone} from "lucide-react";
 import {buttonVariants} from "@/components/ui/button";
 import Link from "next/link";
 
-export default function Contact() {
+interface Props {
+
+	email: string;
+	telephone: string;
+	tel: string;
+	linkedin: string;
+	adress: string;
+	adressLink: string;
+}
+
+export default function Contact({email, telephone, tel, linkedin, adress, adressLink}: Props) {
 
 	return (
 
@@ -15,32 +25,32 @@ export default function Contact() {
 
 			<div className="flex gap-4 flex-col sm:flex-row">
 
-				<Link href={"mailto:contact@matthieufelicite.com"} className={buttonVariants({variant: "outline"})}>
+				<Link href={"mailto:" + email} className={buttonVariants({variant: "outline", className: "flex-1"})}>
 
 					<Mail className="w-4 h-4" />
 
-					contact@matthieufelicite.com
+					{email}
 				</Link>
 
-				<Link href="https://www.linkedin.com/in/matthieufelicite/" className={buttonVariants({variant: "outline"})}>
+				<Link href={linkedin} className={buttonVariants({variant: "outline", className: "flex-1"})}>
 
 					<Linkedin className="w-4 h-4" />
 
 					Linkedin
 				</Link>
 
-				<Link href="tel:+33612796987" className={buttonVariants({variant: "outline"})}>
+				<Link href={"tel:" + tel} className={buttonVariants({variant: "outline", className: "flex-1"})}>
 
 					<Phone className="w-4 h-4" />
 
-					06 12 79 69 87
+					{telephone}
 				</Link>
 
-				<Link href="https://maps.app.goo.gl/TK17GVYzenE6PpVz6" className={buttonVariants({variant: "outline"})}>
+				<Link href={adressLink} className={buttonVariants({variant: "outline", className: "flex-1"})}>
 
 					<MapPinHouse className="w-4 h-4" />
 
-					92500 Rueil-Malmaison
+					{adress}
 				</Link>
 			</div>
 		</div>

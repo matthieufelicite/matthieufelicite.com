@@ -3,8 +3,22 @@ import Section from "@/components/Section";
 import { Experience } from "@/components/Section";
 import Competences from "@/components/Competences";
 import Contact from "@/components/Contact";
+import CompetenceType from "@/lib/interfaces/CompetenceType";
 
 export default function Home() {
+
+	const name: string = "Matthieu FELICITE"
+	const position: string = "Développeur web"
+	const description: string = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla auctor dolor, sit amet auctor ante lacinia id. Praesent non."
+	const picture: string = "/profilepicture.jpg"
+
+	const email: string = "contact@matthieufelicite.com"
+	const telephone: string = "06 12 79 69 87"
+	const tel: string = "+33612796987"
+	const linkedin: string = "https://www.linkedin.com/in/matthieufelicite/"
+	const adress: string = "92500 Rueil-Malmaison"
+	const adressLink: string = "https://maps.app.goo.gl/TK17GVYzenE6PpVz6"
+
 
 	const experiences: Experience[] = [
 
@@ -65,20 +79,37 @@ export default function Home() {
 				image: "/lycee.svg"
 		}
 	]
+		
+		const competences: CompetenceType[] = [
+
+			{id: 1, label: "HTML"},
+			{id: 2, label: "CSS"},
+			{id: 3, label: "Javascript"},
+			{id: 4, label: "Typescript"},
+			{id: 5, label: "C"},
+			{id: 6, label: "C++"},
+			{id: 7, label: "Python"},
+			{id: 8, label: "Git"},
+			{id: 9, label: "Docker"},
+			{id: 10, label: "SQL"},
+			{id: 11, label: "Travail d'équipe"},
+			{id: 12, label: "Autonomie"},
+			{id: 13, label: "Rigueur"}
+		]
 
 	return (
 
 		<div className="py-24 sm:py-32 mx-auto max-w-7xl px-6 lg:px-8 flex flex-col gap-24">
 
-			<Header name="Matthieu FELICITE" position="Développeur web" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla auctor dolor, sit amet auctor ante lacinia id. Praesent non." picture="/profilepicture.jpg" />
+			<Header name={name} position={position} description={description} picture={picture} />
 
-			<Contact/>
+			<Contact email={email} telephone={telephone} tel={tel} linkedin={linkedin} adress={adress} adressLink={adressLink} />
 
 			<Section title="Expériences professionnelles" experiences={experiences}/>
 
 			<Section title="Formation" experiences={formation}/>
 
-			<Competences />
+			<Competences competences={competences} />
 		</div>
 	);
 }
